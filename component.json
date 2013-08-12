@@ -1,0 +1,17 @@
+{
+  "name": "alerts",
+  "repo": "chameleonui/alerts",
+  "description": "Alerts component",
+  "version": "1.0.0",
+  "keywords": ["alert", "alerts", "flash messages", "error", "info", "success", "warning"],
+  "dependencies": {
+    "component/jquery": "*",
+    "cayasso/doT": "*"
+  },
+  "development": {},
+  "license": "MIT",
+  "main": "index.js",
+  "scripts": [
+    "index.js"
+  ]
+}

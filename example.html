@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Block and Flash alerts</title>
+	<style>
+		html {font-size: 1em; font-family: sans-serif; margin: 0; padding: 0;}
+		body {margin: 0; padding: 0;}
+		.page-header {display: block; position: fixed; width: 100%; background: #cfcfcf; height: 3em;}
+		.page-content {padding: 3em; width: 100%; max-width: 420px; margin: 0 auto; padding-top: 6em;}
+		*, .alert-message, .alert-message * {-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box;}
+		.alerts-container {
+			display: block;
+			position: fixed;
+			top: 3em;
+			width: 100%;
+		}
+		.alert-message {
+			display: block;
+			width: 100%;
+			max-height: 0;
+			position: relative;
+			padding: 0;
+			margin: 0;
+			opacity: 0;
+			overflow: hidden;
+			-webkit-transition: all .4s ease-in;
+			   -moz-transition: all .4s ease-in;
+			    -ms-transition: all .4s ease-in;
+			     -o-transition: all .4s ease-in;
+			        transition: all .4s ease-in;
+		}
+		.alert-message.is-shown {
+			max-height: 10em;
+			opacity: 1;
+		}
+		.alert-message > .alert-content {
+			display: block;
+			padding: 1em;
+			margin: 0;
+			line-height: 1.5em;
+			vertical-align: middle;
+			border: 0px none;
+		}
+
+		.alert-message.is-info { background: #b4e1e2; color: #317274; }
+		.alert-message.is-error { background: #fdd3d3; color: #a6352e; }
+		.alert-message.is-warning { background: #ffeed9; color: #c88106; }
+		.alert-message.is-success { background: #cbf0d1; color: #363; }
+		
+		.alert-message.is-info > .alert-content { border: 1px solid #71c0c3}
+		.alert-message.is-error > .alert-content { border: 1px solid #dd8b86}
+		.alert-message.is-warning > .alert-content { border: 1px solid #fac363}
+		.alert-message.is-success > .alert-content { border: 1px solid #80c080}
+	</style>
+</head>
+<body>
+
+	<div class="page-header">
+		header bar
+	</div>
+
+	<!-- S: Alert Container -->
+	<div class="alerts-container"></div>
+	<!-- E: Alert Container -->
+
+	<div class="page-content">
+		
+		<h1>Page content</h1>
+
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam, nobis, ad illum blanditiis distinctio eligendi a possimus consectetur consequatur minima! Labore consectetur aut corporis ab numquam voluptatibus repellendus porro dignissimos.</p>
+		
+		<h2>Flash Alert Messages</h2>
+
+		<p>
+			<a href="#" data-alert="info">Info alert message</a><br>
+			<a href="#" data-alert="error">Error alert message</a><br>
+			<a href="#" data-alert="warning">Warning alert message</a><br>
+			<a href="#" data-alert="success">Success alert message</a><br>
+		</p>
+
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam, nobis, ad illum blanditiis distinctio eligendi a possimus consectetur consequatur minima! Labore consectetur aut corporis ab numquam voluptatibus repellendus porro dignissimos.</p>
+
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam, nobis, ad illum blanditiis distinctio eligendi a possimus consectetur consequatur minima! Labore consectetur aut corporis ab numquam voluptatibus repellendus porro dignissimos.</p>
+
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam, nobis, ad illum blanditiis distinctio eligendi a possimus consectetur consequatur minima! Labore consectetur aut corporis ab numquam voluptatibus repellendus porro dignissimos.</p>
+
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam, nobis, ad illum blanditiis distinctio eligendi a possimus consectetur consequatur minima! Labore consectetur aut corporis ab numquam voluptatibus repellendus porro dignissimos.</p>
+
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam, nobis, ad illum blanditiis distinctio eligendi a possimus consectetur consequatur minima! Labore consectetur aut corporis ab numquam voluptatibus repellendus porro dignissimos.</p>
+
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam, nobis, ad illum blanditiis distinctio eligendi a possimus consectetur consequatur minima! Labore consectetur aut corporis ab numquam voluptatibus repellendus porro dignissimos.</p>
+		
+	</div>
+	
+
+	<script src="build/build.js"></script>
+	<script>
+
+		var $ = require('jquery');
+		var Alerts = require('alerts');
+
+		var alert = new Alerts('.alerts-container', {method: 'prepend', timeout: 5000});
+		
+		var messages = {
+			info: "<strong>Information:</strong> This alert needs your attention, but it's not super important.",
+			error: '<strong>Error:</strong> Change a few things up and try submitting again.',
+			warning: "<strong>Warning:</strong> Best check yo self, you're not looking too good.",
+			success: '<strong>Success:</strong> You successfully read this important alert message.'
+		};
+
+
+		$('body').on('click', '[data-alert]', this, function(e){
+			e.preventDefault();
+			var state = $(this).data('alert');
+			alert[state](messages[state]);
+		});
+
+	</script>
+</body>
+</html>
