@@ -6,7 +6,7 @@ module.exports = Alerts;
 var defaults = {
 	method: 'append',
 	timeout: null,
-	selectorContainer: '.alert-container',
+	alertsContainer: '.alert-container',
 	classShown: 'is-shown',
 	messages: {
 		info: "<strong>Information:</strong> This alert needs your attention, but it's not super important.",
@@ -27,7 +27,7 @@ function Alerts(element, options) {
 	for (var i in defaults) {
 		if (!(this.options[i])) this.options[i] = defaults[i];
 	}
-	this._element = element || this.options.selectorContainer;
+	this._element = element || this.options.alertsContainer;
 	this._$element = $(this._element);
 	this.alertTemplates = this.options.alertTemplates;
 	this.timeout = this.options.timeout;

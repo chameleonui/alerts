@@ -30,7 +30,7 @@ Alerts have 4 states:
 var options = {
 	method: 'append',
 	timeout: null,
-	selectorContainer: '.alert-container',
+	alertsContainer: '.alert-container',
 	classShown: 'is-shown',
 	messages: {
 		info: "<strong>Information:</strong> This alert needs your attention, but it's not super important.",
@@ -47,19 +47,19 @@ var options = {
 };
 ```
 
-### Alerts.info = function(stringHtml)
+### Alerts.info = function([stringHtml])
 
 Render Information state
 
-### Alerts.error(stringHtml)
+### Alerts.error([stringHtml])
 
 Render Error state
 
-### Alerts.warning(stringHtml)
+### Alerts.warning([stringHtml])
 
 Render Warning state
 
-### Alerts.success(stringHtml)
+### Alerts.success([stringHtml])
 
 Render Success state
 
