@@ -64,6 +64,16 @@ Render Warning state
 Render Success state
 
 
+## Example
+
+Super simple example of use.
+
+```js
+var showAlert = new Alerts('.alerts-container', {method: 'prepend', timeout: 5000});
+showAlert.error('<strong>Example Error!</strong><br/>This is really wierd error, thought...');
+```
+
+
 ## Author(s)
 
 Edgedesign s.r.o. – [Daniel Sitek](https://github.com/danielsitek)
