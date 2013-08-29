@@ -95,7 +95,7 @@ Alerts.prototype._createFlash = function(state, msg) {
 
 Alerts.prototype._renderTemplate = function(el) {
 	var _this = this;
-	if(this.timeout != null) {
+	if(this.timeout !== null) {
 		setTimeout(function(){
 			$(el).addClass(_this.options.classShown);
 		}, 1);
@@ -132,7 +132,7 @@ Alerts.prototype._createItem = function(data) {
 };
 
 Alerts.prototype._dissmiss = function(el) {
-	$(el).removeClass(this.options.classShown);		
+	$(el).removeClass(this.options.classShown);
 	setTimeout(function(){
 		$(el).remove();
 	}, 3000);
