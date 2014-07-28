@@ -1,5 +1,11 @@
 # 1.0
 
+## 1.0.4
+
+* Added dependency `component/emitter`
+* Emited event `dissmissed` when you click on "Close"
+* Updated example js in `example.html`
+
 ## 1.0.3
 
 * Added dependency `chameleonui/merge-objects`, this fixed multilevel array concatenating of object options

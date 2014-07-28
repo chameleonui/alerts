@@ -1,5 +1,6 @@
 var $ = require('jquery');
 var dot = require('doT');
+var Emitter = require('emitter');
 var MergeObjects = require('merge-objects');
 
 module.exports = Alerts;
@@ -31,8 +32,12 @@ function Alerts(element, options) {
 	this.timeout = this.options.timeout;
 	this.method = '_'+this.options.method;
 
+	Emitter.call(this);
+
 	this._onCLickDissmiss();
 }
+
+Emitter(Alerts.prototype);
 
 // Render shorteners for Info, Error, Warning, Success states
 
@@ -144,5 +149,6 @@ Alerts.prototype._onCLickDissmiss = function() {
 		var dissmissID = $(this).data('alert-dissmiss');
 		var el = '#'+dissmissID;
 		e.data._dissmiss(el);
+		e.data.emit('dissmissed');
 	});
 };

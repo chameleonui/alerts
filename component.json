@@ -2,7 +2,7 @@
   "name": "alerts",
   "repo": "chameleonui/alerts",
   "description": "Alerts component",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "keywords": [
     "alert",
     "alerts",
@@ -15,7 +15,8 @@
   "dependencies": {
     "components/jquery": "1.11",
     "cayasso/doT": "*",
-    "chameleonui/merge-objects": "*"
+    "chameleonui/merge-objects": "*",
+    "component/emitter": "*"
   },
   "development": {},
   "license": "MIT",
