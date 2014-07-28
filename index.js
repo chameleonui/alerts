@@ -1,5 +1,6 @@
 var $ = require('jquery');
 var dot = require('doT');
+var MergeObjects = require('merge-objects');
 
 module.exports = Alerts;
 
@@ -23,10 +24,7 @@ var defaults = {
 };
 
 function Alerts(element, options) {
-	this.options = options || {};
-	for (var i in defaults) {
-		if (!(this.options[i])) this.options[i] = defaults[i];
-	}
+	this.options = new MergeObjects(options, defaults);
 	this._element = element || this.options.alertsContainer;
 	this._$element = $(this._element);
 	this.alertTemplates = this.options.alertTemplates;
@@ -89,7 +87,7 @@ Alerts.prototype._createFlash = function(state, msg) {
 		alertMsg: rentMsg
 	};
 	this._viewAlert(this.alertTemplates[state], data)._renderTemplate(el);
-	
+
 	return this;
 };
 

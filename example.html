@@ -47,7 +47,7 @@
 		.alert-message.is-error { background: #fdd3d3; color: #a6352e; }
 		.alert-message.is-warning { background: #ffeed9; color: #c88106; }
 		.alert-message.is-success { background: #cbf0d1; color: #363; }
-		
+
 		.alert-message.is-info > .alert-content { border: 1px solid #71c0c3}
 		.alert-message.is-error > .alert-content { border: 1px solid #dd8b86}
 		.alert-message.is-warning > .alert-content { border: 1px solid #fac363}
@@ -65,11 +65,11 @@
 	<!-- E: Alert Container -->
 
 	<div class="page-content">
-		
+
 		<h1>Page content</h1>
 
 		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam, nobis, ad illum blanditiis distinctio eligendi a possimus consectetur consequatur minima! Labore consectetur aut corporis ab numquam voluptatibus repellendus porro dignissimos.</p>
-		
+
 		<h2>Flash Alert Messages</h2>
 
 		<p>
@@ -90,9 +90,9 @@
 		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam, nobis, ad illum blanditiis distinctio eligendi a possimus consectetur consequatur minima! Labore consectetur aut corporis ab numquam voluptatibus repellendus porro dignissimos.</p>
 
 		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam, nobis, ad illum blanditiis distinctio eligendi a possimus consectetur consequatur minima! Labore consectetur aut corporis ab numquam voluptatibus repellendus porro dignissimos.</p>
-		
+
 	</div>
-	
+
 
 	<script src="build/build.js"></script>
 	<script>
@@ -100,8 +100,14 @@
 		var $ = require('jquery');
 		var Alerts = require('alerts');
 
-		var alert = new Alerts('.alerts-container', {method: 'prepend', timeout: 5000});
-		
+		var alert = new Alerts('.alerts-container', {
+			method: 'prepend',
+			timeout: 5000,
+			alertTemplates: {
+				info: '<div class="alert-message is-info" id="{{=it.alertID}}"><div class="alert-content">{{=it.alertMsg}} <a href="#" data-alert-dissmiss="{{=it.alertID}}">Exit</a></div></div>',
+			}
+		});
+
 		var messages = {
 			info: "<strong>Information:</strong> This alert needs your attention, but it's not super important.",
 			error: '<strong>Error:</strong> Change a few things up and try submitting again.',
